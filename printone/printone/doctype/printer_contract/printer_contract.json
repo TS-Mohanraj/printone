@@ -1,0 +1,124 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "naming_series:",
+ "creation": "2026-04-03 20:33:26.304375",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "contract_details_section",
+  "customer",
+  "machine_serial",
+  "rental_amount",
+  "contract_start_date",
+  "rental_frequency",
+  "naming_series",
+  "column_break_zqek",
+  "monthly_free_copies_bnw",
+  "monthly_free_copies_color",
+  "extra_rate_bnw",
+  "extra_rate_color",
+  "reading_frequency"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "label": "Company name",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "contract_start_date",
+   "fieldtype": "Date",
+   "label": "Contract Start Date"
+  },
+  {
+   "fieldname": "monthly_free_copies_bnw",
+   "fieldtype": "Int",
+   "label": "Free Copies BnW(A4)"
+  },
+  {
+   "fieldname": "column_break_zqek",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "monthly_free_copies_color",
+   "fieldtype": "Int",
+   "label": "Free Copies Color(A4)"
+  },
+  {
+   "fieldname": "extra_rate_bnw",
+   "fieldtype": "Currency",
+   "label": "Excess BnW Rate(A4)"
+  },
+  {
+   "fieldname": "extra_rate_color",
+   "fieldtype": "Currency",
+   "label": "Excess Color Rate(A4)"
+  },
+  {
+   "fieldname": "machine_serial",
+   "fieldtype": "Data",
+   "label": "Machine Serial"
+  },
+  {
+   "fieldname": "contract_details_section",
+   "fieldtype": "Section Break",
+   "label": "Contract Details"
+  },
+  {
+   "fieldname": "rental_amount",
+   "fieldtype": "Int",
+   "label": "Rental Amount"
+  },
+  {
+   "fieldname": "rental_frequency",
+   "fieldtype": "Select",
+   "label": "Rental Frequency",
+   "options": "Monthly\nQuarterly\nHalf Yearly\nBi-monthly\nAnnual"
+  },
+  {
+   "fieldname": "reading_frequency",
+   "fieldtype": "Select",
+   "label": "Reading Frequency",
+   "options": "Monthly\nQuarterly"
+  },
+  {
+   "fieldname": "naming_series",
+   "fieldtype": "Select",
+   "hidden": 1,
+   "label": "Naming Series",
+   "options": ".machine_serial.-PC-.####"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-04-07 17:55:50.668131",
+ "modified_by": "Administrator",
+ "module": "Printone",
+ "name": "Printer Contract",
+ "naming_rule": "By \"Naming Series\" field",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "machine_serial"
+}

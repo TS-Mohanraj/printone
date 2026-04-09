@@ -5,6 +5,7 @@ app_description = "Printer based company"
 app_email = "mohanrajts400@gmail.com"
 app_license = "mit"
 
+
 # Apps
 # ------------------
 

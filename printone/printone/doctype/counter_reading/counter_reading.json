@@ -1,0 +1,254 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "PR-.customer.-.###",
+ "creation": "2026-04-04 22:22:20.022559",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "customer_details_section",
+  "contract",
+  "reading_date",
+  "column_break_bpyy",
+  "customer",
+  "previous_reading_date",
+  "basic_details_section",
+  "bnw_count",
+  "color_count",
+  "column_break_dcxn",
+  "previous_bnw",
+  "previous_color",
+  "consumption_details_section",
+  "bnw_consumption",
+  "color_consumption",
+  "column_break_cbpt",
+  "previous_bnw_consumptiona4",
+  "previous_color_consumptiona4",
+  "prorated_and_billable_calculation_section",
+  "days_difference",
+  "bnw_billable",
+  "bnw_amount",
+  "column_break_rzzy",
+  "prorated_bnw",
+  "color_billable",
+  "color_amount",
+  "amended_from",
+  "column_break_dqgf",
+  "prorated_color",
+  "invoice"
+ ],
+ "fields": [
+  {
+   "fieldname": "customer",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Customer",
+   "options": "Customer"
+  },
+  {
+   "fieldname": "reading_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Reading Date",
+   "reqd": 1
+  },
+  {
+   "description": "(1)",
+   "fieldname": "bnw_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Current BnW Reading(A4) "
+  },
+  {
+   "description": "(2)",
+   "fieldname": "color_count",
+   "fieldtype": "Int",
+   "in_list_view": 1,
+   "label": "Current Color Reading(A4)"
+  },
+  {
+   "fieldname": "column_break_dcxn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "description": "(3)",
+   "fieldname": "previous_bnw",
+   "fieldtype": "Int",
+   "label": "Previous BnW Reading(A4)",
+   "read_only": 1
+  },
+  {
+   "description": "(4)",
+   "fieldname": "previous_color",
+   "fieldtype": "Int",
+   "label": "Previous Color Reading(A4)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "days_difference",
+   "fieldtype": "Int",
+   "label": "No. of Days Consumed",
+   "read_only": 1
+  },
+  {
+   "description": "(5)",
+   "fieldname": "bnw_consumption",
+   "fieldtype": "Int",
+   "label": "Current BnW Consumption(A4) = (1 - 3)",
+   "read_only": 1
+  },
+  {
+   "description": "(6)",
+   "fieldname": "color_consumption",
+   "fieldtype": "Int",
+   "label": "Current Color Consumption(A4) = (2 - 4)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "prorated_and_billable_calculation_section",
+   "fieldtype": "Section Break",
+   "label": "Billing Calculation"
+  },
+  {
+   "description": "(7)",
+   "fieldname": "prorated_bnw",
+   "fieldtype": "Float",
+   "label": "Prorated Free Copies BnW",
+   "read_only": 1
+  },
+  {
+   "description": "(8)",
+   "fieldname": "prorated_color",
+   "fieldtype": "Float",
+   "label": "Prorated Free Copies Color",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_rzzy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "bnw_billable",
+   "fieldtype": "Int",
+   "label": "Excess BnW Billable Consumption(A4) = (5 - 7)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "color_billable",
+   "fieldtype": "Int",
+   "label": "Excess Color Billable Consumption(A4) = (6 - 8)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "basic_details_section",
+   "fieldtype": "Section Break",
+   "label": "Reading Details"
+  },
+  {
+   "fieldname": "previous_reading_date",
+   "fieldtype": "Date",
+   "label": "Previous Reading Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "bnw_amount",
+   "fieldtype": "Currency",
+   "label": "Excess BnW Amount(A4)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "color_amount",
+   "fieldtype": "Currency",
+   "label": "Excess Color Amount(A4)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "invoice",
+   "fieldtype": "Link",
+   "label": "Invoice",
+   "options": "Sales Invoice",
+   "read_only": 1
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Counter Reading",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
+  },
+  {
+   "fieldname": "contract",
+   "fieldtype": "Link",
+   "label": "Printer Contract",
+   "link_filters": "[[\"Printer Contract\", \"customer\", \"=\", \"eval:doc.customer\"]]",
+   "options": "Printer Contract",
+   "reqd": 1
+  },
+  {
+   "fieldname": "previous_bnw_consumptiona4",
+   "fieldtype": "Int",
+   "label": "Previous BnW Consumption(A4)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "previous_color_consumptiona4",
+   "fieldtype": "Int",
+   "label": "Previous Color Consumption(A4)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "customer_details_section",
+   "fieldtype": "Section Break",
+   "label": "Customer Details"
+  },
+  {
+   "fieldname": "column_break_bpyy",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "column_break_dqgf",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "consumption_details_section",
+   "fieldtype": "Section Break",
+   "label": "Consumption Details"
+  },
+  {
+   "fieldname": "column_break_cbpt",
+   "fieldtype": "Column Break"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-04-09 17:00:00.938710",
+ "modified_by": "Administrator",
+ "module": "Printone",
+ "name": "Counter Reading",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": []
+}
