@@ -6,19 +6,25 @@
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
+  "combined_contract_section",
+  "combined",
   "contract_details_section",
   "customer",
   "machine_serial",
+  "rental_frequency",
+  "monthly_free_copies_bnw",
+  "extra_rate_bnw",
+  "column_break_zqek",
   "rental_amount",
   "contract_start_date",
-  "rental_frequency",
-  "naming_series",
-  "column_break_zqek",
-  "monthly_free_copies_bnw",
+  "reading_frequency",
   "monthly_free_copies_color",
-  "extra_rate_bnw",
   "extra_rate_color",
-  "reading_frequency"
+  "naming_series",
+  "combined_contract_details_section",
+  "combined_free_copies",
+  "column_break_vjcn",
+  "combined_excess_rate"
  ],
  "fields": [
   {
@@ -35,7 +41,7 @@
   {
    "fieldname": "monthly_free_copies_bnw",
    "fieldtype": "Int",
-   "label": "Free Copies BnW(A4)"
+   "label": "Free Copies BnW"
   },
   {
    "fieldname": "column_break_zqek",
@@ -44,17 +50,17 @@
   {
    "fieldname": "monthly_free_copies_color",
    "fieldtype": "Int",
-   "label": "Free Copies Color(A4)"
+   "label": "Free Copies Color"
   },
   {
    "fieldname": "extra_rate_bnw",
    "fieldtype": "Currency",
-   "label": "Excess BnW Rate(A4)"
+   "label": "Excess BnW Rate"
   },
   {
    "fieldname": "extra_rate_color",
    "fieldtype": "Currency",
-   "label": "Excess Color Rate(A4)"
+   "label": "Excess Color Rate"
   },
   {
    "fieldname": "machine_serial",
@@ -89,12 +95,42 @@
    "hidden": 1,
    "label": "Naming Series",
    "options": ".machine_serial.-PC-.####"
+  },
+  {
+   "default": "0",
+   "fieldname": "combined",
+   "fieldtype": "Check",
+   "label": "Combined?"
+  },
+  {
+   "fieldname": "combined_contract_section",
+   "fieldtype": "Section Break",
+   "label": "Combined Contract "
+  },
+  {
+   "fieldname": "combined_contract_details_section",
+   "fieldtype": "Section Break",
+   "label": "Combined Contract Details"
+  },
+  {
+   "fieldname": "combined_free_copies",
+   "fieldtype": "Int",
+   "label": "Combined Free copies"
+  },
+  {
+   "fieldname": "column_break_vjcn",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "combined_excess_rate",
+   "fieldtype": "Currency",
+   "label": "Combined Excess Rate"
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2026-04-07 17:55:50.668131",
+ "modified": "2026-05-12 22:29:13.329465",
  "modified_by": "Administrator",
  "module": "Printone",
  "name": "Printer Contract",

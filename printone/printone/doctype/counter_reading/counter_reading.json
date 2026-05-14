@@ -1,41 +1,64 @@
 {
  "actions": [],
  "allow_rename": 1,
- "autoname": "PR-.customer.-.###",
+ "autoname": "CR-.customer.-.###",
  "creation": "2026-04-04 22:22:20.022559",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "customer_details_section",
-  "contract",
+  "customer",
   "reading_date",
   "column_break_bpyy",
-  "customer",
+  "contract",
   "previous_reading_date",
+  "opening_date",
   "basic_details_section",
   "bnw_count",
   "color_count",
+  "current_bnw_readinga3",
+  "current_color_readinga3",
+  "current_bnw_readinga5",
+  "current_color_readinga5",
   "column_break_dcxn",
   "previous_bnw",
   "previous_color",
+  "previous_bnw_readinga3",
+  "previous_color_readinga3",
+  "previous_bnw_readinga5",
+  "previous_color_readinga5",
   "consumption_details_section",
   "bnw_consumption",
   "color_consumption",
+  "current_bnw_consumption_a3",
+  "current_color_consumption_a3",
+  "current_bnw_consumptiona5",
+  "current_color_consumptiona5",
   "column_break_cbpt",
   "previous_bnw_consumptiona4",
   "previous_color_consumptiona4",
+  "previous_bnw_consumptiona3",
+  "previous_color_consumptiona3",
+  "previous_bnw_consumptiona5",
+  "previous_color_consumptiona5",
   "prorated_and_billable_calculation_section",
-  "days_difference",
+  "prorated_bnw",
   "bnw_billable",
   "bnw_amount",
+  "days_difference",
   "column_break_rzzy",
-  "prorated_bnw",
+  "prorated_color",
   "color_billable",
   "color_amount",
+  "invoice",
   "amended_from",
-  "column_break_dqgf",
-  "prorated_color",
-  "invoice"
+  "section_break_yyjh",
+  "prorated_combined_free_copies",
+  "excess_combined_billable_consumption",
+  "column_break_ldwm",
+  "no_of_days_consumed",
+  "excess_combined_amount",
+  "combined_invoice"
  ],
  "fields": [
   {
@@ -91,14 +114,14 @@
    "read_only": 1
   },
   {
-   "description": "(5)",
+   "description": "(13)",
    "fieldname": "bnw_consumption",
    "fieldtype": "Int",
    "label": "Current BnW Consumption(A4) = (1 - 3)",
    "read_only": 1
   },
   {
-   "description": "(6)",
+   "description": "(14)",
    "fieldname": "color_consumption",
    "fieldtype": "Int",
    "label": "Current Color Consumption(A4) = (2 - 4)",
@@ -110,14 +133,14 @@
    "label": "Billing Calculation"
   },
   {
-   "description": "(7)",
+   "description": "(25)",
    "fieldname": "prorated_bnw",
-   "fieldtype": "Float",
+   "fieldtype": "Int",
    "label": "Prorated Free Copies BnW",
    "read_only": 1
   },
   {
-   "description": "(8)",
+   "description": "(26)",
    "fieldname": "prorated_color",
    "fieldtype": "Float",
    "label": "Prorated Free Copies Color",
@@ -130,19 +153,19 @@
   {
    "fieldname": "bnw_billable",
    "fieldtype": "Int",
-   "label": "Excess BnW Billable Consumption(A4) = (5 - 7)",
+   "label": "Excess BnW Billable Consumption(A4+A3+A5) = ([13 + 17 + 21] - 25)",
    "read_only": 1
   },
   {
    "fieldname": "color_billable",
    "fieldtype": "Int",
-   "label": "Excess Color Billable Consumption(A4) = (6 - 8)",
+   "label": "Excess Color Billable Consumption(A4+A3+A5) = ([14 + 18 + 22] - 26)",
    "read_only": 1
   },
   {
    "fieldname": "basic_details_section",
    "fieldtype": "Section Break",
-   "label": "Reading Details"
+   "label": "Reading Details "
   },
   {
    "fieldname": "previous_reading_date",
@@ -153,13 +176,13 @@
   {
    "fieldname": "bnw_amount",
    "fieldtype": "Currency",
-   "label": "Excess BnW Amount(A4)",
+   "label": "Excess BnW Amount",
    "read_only": 1
   },
   {
    "fieldname": "color_amount",
    "fieldtype": "Currency",
-   "label": "Excess Color Amount(A4)",
+   "label": "Excess Color Amount",
    "read_only": 1
   },
   {
@@ -188,12 +211,14 @@
    "reqd": 1
   },
   {
+   "description": "(15)",
    "fieldname": "previous_bnw_consumptiona4",
    "fieldtype": "Int",
    "label": "Previous BnW Consumption(A4)",
    "read_only": 1
   },
   {
+   "description": "(16)",
    "fieldname": "previous_color_consumptiona4",
    "fieldtype": "Int",
    "label": "Previous Color Consumption(A4)",
@@ -209,10 +234,6 @@
    "fieldtype": "Column Break"
   },
   {
-   "fieldname": "column_break_dqgf",
-   "fieldtype": "Column Break"
-  },
-  {
    "fieldname": "consumption_details_section",
    "fieldtype": "Section Break",
    "label": "Consumption Details"
@@ -220,13 +241,167 @@
   {
    "fieldname": "column_break_cbpt",
    "fieldtype": "Column Break"
+  },
+  {
+   "description": "(5)",
+   "fieldname": "current_bnw_readinga3",
+   "fieldtype": "Int",
+   "label": "Current BnW Reading(A3)"
+  },
+  {
+   "description": "(6)",
+   "fieldname": "current_color_readinga3",
+   "fieldtype": "Int",
+   "label": "Current Color Reading(A3)"
+  },
+  {
+   "description": "(7)",
+   "fieldname": "previous_bnw_readinga3",
+   "fieldtype": "Int",
+   "label": "Previous BnW Reading(A3)",
+   "read_only": 1
+  },
+  {
+   "description": "(8)",
+   "fieldname": "previous_color_readinga3",
+   "fieldtype": "Int",
+   "label": "Previous Color Reading(A3)",
+   "read_only": 1
+  },
+  {
+   "description": "(17)",
+   "fieldname": "current_bnw_consumption_a3",
+   "fieldtype": "Int",
+   "label": "Current BnW Consumption(A3) = (5 - 7)",
+   "read_only": 1
+  },
+  {
+   "description": "(18)",
+   "fieldname": "current_color_consumption_a3",
+   "fieldtype": "Int",
+   "label": "Current Color Consumption(A3) = (6 - 8)",
+   "read_only": 1
+  },
+  {
+   "description": "(19)",
+   "fieldname": "previous_bnw_consumptiona3",
+   "fieldtype": "Int",
+   "label": "Previous Bnw Consumption(A3)",
+   "read_only": 1
+  },
+  {
+   "description": "(20)",
+   "fieldname": "previous_color_consumptiona3",
+   "fieldtype": "Int",
+   "label": "Previous Color Consumption(A3)",
+   "read_only": 1
+  },
+  {
+   "description": "(9)",
+   "fieldname": "current_bnw_readinga5",
+   "fieldtype": "Int",
+   "label": "Current BnW Reading(A5)"
+  },
+  {
+   "description": "(10)",
+   "fieldname": "current_color_readinga5",
+   "fieldtype": "Int",
+   "label": "Current Color Reading(A5)"
+  },
+  {
+   "description": "(11)",
+   "fieldname": "previous_bnw_readinga5",
+   "fieldtype": "Int",
+   "label": "Previous BnW Reading(A5)",
+   "read_only": 1
+  },
+  {
+   "description": "(12)",
+   "fieldname": "previous_color_readinga5",
+   "fieldtype": "Int",
+   "label": "Previous Color Reading(A5)",
+   "read_only": 1
+  },
+  {
+   "description": "(21)",
+   "fieldname": "current_bnw_consumptiona5",
+   "fieldtype": "Int",
+   "label": "Current BnW Consumption(A5) = (9 - 11)",
+   "read_only": 1
+  },
+  {
+   "description": "(22)",
+   "fieldname": "current_color_consumptiona5",
+   "fieldtype": "Int",
+   "label": "Current Color Consumption(A5) = (10 - 12)",
+   "read_only": 1
+  },
+  {
+   "description": "(23)",
+   "fieldname": "previous_bnw_consumptiona5",
+   "fieldtype": "Int",
+   "label": "Previous BnW Consumption(A5)",
+   "read_only": 1
+  },
+  {
+   "description": "(24)",
+   "fieldname": "previous_color_consumptiona5",
+   "fieldtype": "Int",
+   "label": "Previous Color Consumption(A5)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "opening_date",
+   "fieldtype": "Date",
+   "label": "Opening Date",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_yyjh",
+   "fieldtype": "Section Break",
+   "label": "Combined Billing Calculation"
+  },
+  {
+   "fieldname": "prorated_combined_free_copies",
+   "fieldtype": "Int",
+   "label": "Prorated Combined Free Copies",
+   "read_only": 1
+  },
+  {
+   "fieldname": "excess_combined_billable_consumption",
+   "fieldtype": "Int",
+   "label": "Excess Combined Billable Consumption",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_ldwm",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "no_of_days_consumed",
+   "fieldtype": "Int",
+   "label": "No. of Days Consumed",
+   "read_only": 1
+  },
+  {
+   "fieldname": "excess_combined_amount",
+   "fieldtype": "Currency",
+   "label": "Excess Combined Amount",
+   "read_only": 1
+  },
+  {
+   "fieldname": "combined_invoice",
+   "fieldtype": "Link",
+   "label": "Invoice",
+   "options": "Sales Invoice",
+   "read_only": 1
   }
  ],
  "grid_page_length": 50,
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-04-09 17:00:00.938710",
+ "modified": "2026-05-13 00:15:44.572511",
  "modified_by": "Administrator",
  "module": "Printone",
  "name": "Counter Reading",
